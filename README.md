@@ -13,3 +13,6 @@ Be sure to edit:
 - Your IntenseDebat ID in `plugin/blog.js` (#51)
 
 Then, customize LaCumparola as you need.
+
+# Warning
+Remember that LaCumparola's news are hidden by bots, so you will be not indexed by Google and friends (but a simple PHP script should be good)!
