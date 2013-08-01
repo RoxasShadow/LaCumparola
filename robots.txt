@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: index.html?id=*
-Disallow: index.html?tag=*
-Disallow: tag/*
-Sitemap: http://www.omnivium.it/sitemap.xml
+Disallow: 

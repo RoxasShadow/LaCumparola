@@ -7,7 +7,6 @@ It's originally made for [Omnivium](http://www.omnivium.it), an anime fansub web
 # Usage
 Be sure to edit:
 
-- The URL in `robots.txt` (#5)
 - The path in `.htaccess` (#37, #39, #42, #43)
 - The password in `editor/index.php` (#10)
 - Your IntenseDebat ID in `plugin/blog.js` (#51)
@@ -15,4 +14,4 @@ Be sure to edit:
 Then, customize LaCumparola as you need.
 
 # Warning
-Remember that LaCumparola's news are hidden by bots, so you will be not indexed by Google and friends (but a simple PHP script should be good)!
+Remember that LaCumparola's articles are hidden by bots, so you will be not indexed by Google and friends (but a simple PHP script should be good)!

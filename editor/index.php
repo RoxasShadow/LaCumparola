@@ -7,32 +7,7 @@
 <body>
 
 <?php
-$password = 'PASSWORD';
-
-function sitemap() {
-  $last = (int)file_get_contents('../news/last.txt', FILE_USE_INCLUDE_PATH);
-
-  $sitemap = '<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-    for($i = 1; $i <= $last; ++$i) {
-      $news = json_decode(file_get_contents('../news/' . $i . '.json', FILE_USE_INCLUDE_PATH));
-      $url  = explode('/editor/', "http://{$_SERVER[HTTP_HOST]}{$_SERVER[REQUEST_URI]}");
-      list($d, $m, $y) = explode('/', $news->date);
-      $sitemap .= "
-      <url>
-        <loc>{$url[0]}/id/{$i}.html</loc>
-        <lastmod>{$y}-{$m}-{$d}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>";
-    }
-    $sitemap .= '
-  </urlset>';
-  
-  $f = fopen('../sitemap.xml', 'w');
-  fwrite($f, $sitemap);
-  fclose($f);
-}
+$password = '/a49gMT.hS$z,%_&Df,EKh*up';
 
 if(get_magic_quotes_gpc()) {
   $process = array(&$_GET, &$_POST, &$_COOKIE, &$_REQUEST);
@@ -91,9 +66,6 @@ if(isset($_POST['password'])) {
   $f = fopen('../news/categories.json', 'w');
   fwrite($f, json_encode($categories));
   fclose($f);
-  
-  // genero la sitemap
-  sitemap();
   
   die('<div align="center"><h1>All done</h1><img src="gg.jpg" /></div>');
 }
