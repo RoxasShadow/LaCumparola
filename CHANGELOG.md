@@ -1,0 +1,6 @@
+- Remove useless stuff
+- Customize `css/theme/default.css` and `css/reveal.min.css`
+- Add `jquery.min.js` in `lib/js`
+- Implement plugin of meny`, `nicescroll`, `trip` and `lightbox`
+- Create plugin `blog` and `overview`
+- Create *.html and `editor` and `news` folders

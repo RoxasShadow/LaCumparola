@@ -1,0 +1,45 @@
+RewriteEngine On
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+#Pagine di errore
+ErrorDocument 401 /error.html
+ErrorDocument 403 /error.html
+ErrorDocument 404 /error.html
+ErrorDocument 500 /error.html
+
+AddType text/html php htm html
+
+<IfModule mod_deflate.c>
+   SetOutputFilter DEFLATE
+
+   BrowserMatch ^Mozilla/4 gzip-only-text/html
+   BrowserMatch ^Mozilla/4\.0[678] no-gzip
+   BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+
+   SetEnvIfNoCase Request_URI \
+   \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+
+   Header append Vary User-Agent env=!dont-vary
+</IfModule>
+
+<IfModule mod_expires.c>
+<IfModule mod_headers.c>
+<FilesMatch "\.(jpg|jpeg|png|bmp|gif|swf|js|css|json)$"> # Estensioni che verranno messe in cache per 15 giorni (1296000 secondi)
+  Header set Cache-Control "max-age=1296000, public"
+</FilesMatch>
+</IfModule>
+</IfModule>
+
+RewriteRule ^index\.html\?id=(\d+)$    /id/$1.html   [L]
+RewriteRule ^id/([0-9]+)\.html$        index.html?id=$1       [L]
+RewriteRule ^id/(\D+)\.html$           /$1.html      [R=301]
+RewriteRule ^id/(.+?)/(.+)$            /$1/$2        [R=301]
+
+RewriteRule ^index\.html\?tag=(\d+)$   /tag/$1       [L]
+RewriteRule ^tag/(.+?)/(.+)$           /$1/$2        [L,R=301]
+RewriteRule ^tag/(.+?).html$           /$1.html      [L,R=301]
+RewriteRule ^tag/(.+)$                 index.html?tag=$1      [L]

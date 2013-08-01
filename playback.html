@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Video playback - Omnivium</title>
+		<meta name="robots" content="index,follow" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+		<link rel="stylesheet" href="css/reveal.min.css" />
+		<link rel="stylesheet" href="css/theme/default.css" id="theme" />
+
+  	<script src="lib/js/jquery.min.js"></script>
+    
+		<!--[if lt IE 9]>
+		  <script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="meny">
+			<h2>Omnivium</h2>
+			<ul>
+				<li><a href="index.html">Index</a></li>
+				<li><a href="staff.html">Staff</a></li>
+    		<li><a href="irc.html">IRC</a></li>
+				<li><a href="playback.html">Video playback</a></li>
+	  	</ul><br />
+      
+      <h2>Serie</h2>
+      <ul>
+        <li><a href="tag/Inferno Cop">SbirrInferno</a></li>
+        <li><a href="tag/Stella Jogakuin Koutouka C3-bu">Stella Jogakuin Koutouka C3-bu</a></li>
+        <li><a href="tag/Sasami-san@Ganbaranai">Sasami-san@Ganbaranai</a></li>
+      </ul><br />
+		  
+			<h2>La Cumpa &copy;</h2>
+			<ul>
+				<li><a href="http://animezer0.lacumpa.biz/">Animezer0</a></li>
+				<li><a href="http://aozora.lacumpa.biz/">Aozora</a></li>
+				<li><a href="http://leaf.lacumpa.biz/">LEAF Fansub</a></li>
+				<li><a href="http://otaku-no-fansub.lacumpa.biz/">Otaku no Fansub</a></li>
+        <li><a href="http://pantalonirossi.lacumpa.biz/">Pantaloni Rossi</a></li>
+				<li><a href="http://pluschan.lacumpa.biz/">Pluschan Fansub</a></li>
+				<li><a href="http://task-force.lacumpa.biz/">Task-Force</a></li>
+				<li><a href="http://supremes.lacumpa.biz/">The Supremes Fansub</a></li>
+	  	</ul>
+		</div>
+
+		<div class="meny-arrow"></div>
+
+		<div class="reveal">
+
+			<div class="slides">
+      
+				<section id="news-1">
+					<header><h2>Video playback</h2></header>
+					<article>
+<p>In questa guida vedremo come settare manualmente MPC-HC per ottenere la miglior qualità di riproduzione video/audio.</p>
+<p><strong><strong>Premessa</strong>: Per i possessori di PC datati, settate Enhanced Video Renderer (Custom Presenter) al posto di madVR.</strong></p>
+<p><strong>Preparazione:</strong></p>
+<p>• Disinstallate CCCP/K-Lite/VLC.</p>
+<p>• Scaricate i seguenti programmi:</p>
+<p>MPC-HC: <a href="http://mpc-hc.sourceforge.net/downloads/" target="_blank">http://mpc-hc.sourceforge.net/downloads/</a> (Scaricate la versione x86)<br />
+madVR: <a href="http://madshi.net/madVR.zip" target="_blank">http://madshi.net/madVR.zip</a><br />
+LAVFilters: <a href="http://code.google.com/p/lavfilters/downloads/list" target="_blank">http://code.google.com/p/lavfilters/downloads/list</a><br />
+Haali: <a href="http://haali.su/mkv/MatroskaSplitter.exe" target="_blank">http://haali.su/mkv/MatroskaSplitter.exe</a><br />
+xy-VSFilter: <a href="https://code.google.com/p/xy-vsfilter/wiki/Downloads?tm=2" target="_blank">https://code.google.com/p/xy-vsfilter/wiki/Downloads?tm=2</a></p>
+<p>E installateli in quest&#8217;ordine:</p>
+<p>MPC-HC &gt; Haali &gt; LAV Filters &gt; madVR &gt; xy-VSFilter</p>
+<p><strong>Note d&#8217;installazione:</strong></p>
+<p>Haali:</p>
+<p>Assicuratevi che siano checkate solo le prime due opzioni (&#8220;Disable MPC internal Matroska splitter&#8221;, e &#8220;Disable Gabest&#8217;s Matroska splitter&#8221;).</p>
+<p>LAV:</p>
+<p>Selezionate solo le versioni x86.</p>
+<p>madVR:</p>
+<p>Consiglio di estrarlo in &#8220;C:\Windows\Programmi (x86)&#8221;, per installarlo date doppio click su install.bat (Non cancellate la cartella una volta fatto).</p>
+<p><strong>Configurazione renderer e filtri esterni:</strong></p>
+<p>Ora aprite MPC-HC, andate in &#8220;View &#8212;&gt; Options &#8212;&gt; Playback &#8212;&gt; Output&#8221; e in &#8220;DirectShow Video&#8221; selezionate &#8220;madVR&#8221;.</p>
+<p><img src="http://i.imgur.com/S6gkx.png" alt="Immagine" /></p>
+<p>Ora andate in &#8220;Internal Filter&#8221;, deselezionate tutte le opzioni.</p>
+<p><img src="http://i.imgur.com/2aYr4.png" alt="Immagine" /></p>
+<p>Passiamo ai filtri esterni, andate su &#8220;External Filter&#8221;, selezionate &#8220;Add Filter&#8230;&#8221; e settate tutto come l&#8217;immy:</p>
+<p><img src="http://i.imgur.com/lsPrr.png" alt="Immagine" /></p>
+<p><strong>Configurazione filtri esterni:</strong></p>
+<p>Fate doppio click su &#8220;LAV Splitter&#8221; e andate in &#8220;Imput Formats&#8221;, deselezionate &#8220;Matroska&#8221; (Lo faremo gestire ad Haali)</p>
+<p><img src="http://i.imgur.com/56k9L.png" alt="Immagine" /></p>
+<p>Fate doppio click su &#8220;LAV Video Decoder&#8221;, selezionate tutto come nell&#8217;immagine:</p>
+<p><img src="http://i.imgur.com/gNpKF.png" alt="Immagine" /></p>
+<p>Per quanto riguarda &#8220;Hardware Decoder to use&#8221;, selezionate quello adatto alla vostra scheda video:</p>
+<p>Se avete una nVidia selezionate &#8220;NVIDIA CUVID&#8221;<br />
+Se avete una ATI selezionate &#8220;DVXA2 (copy-back)&#8221;<br />
+Se avete una Intel Sandy/Ivy Bridge selezionate &#8220;Intel QuickSynch&#8221;</p>
+<p><strong>Configurare i sottotitoli:</strong></p>
+<p>Andate su &#8220;Playback&#8221; e togliete la spunta ad &#8220;Auto-load subtitles&#8221;.</p>
+<p><img src="http://i.imgur.com/ll8Qu.png" alt="ll8Qu" /></p>
+<p><strong>Configurare madVR:</strong></p>
+<p>Siamo arrivati all&#8217;ultima parte della guida, aprite un video qualsiasi, cliccate con il tasto destro e selezionate &#8220;Filters &#8212;&gt; madVR Renderer &#8212;&gt; Edit Setting&#8221;</p>
+<p><img src="http://i.imgur.com/GOItp.jpg" alt="" width="907" height="595" /></p>
+<p>Nella sezione &#8220;devices&#8221; in &#8220;identification&#8221; selezionate il vostro tipo di Display (Nella maggioranza dei casi Digital Monitor / TV), dopodiché andate su &#8220;properties&#8221; e selezionate l&#8217;RGB Level adatto al vostro display, il bitdepth settatelo a 6 (a meno che non possediate un pannello IPS (Non e-IPS) o *VA, in questo caso settate 8 or higher).</p>
+<p><img src="http://i.imgur.com/yNL4n.png" alt="Immagine" /></p>
+<p>Ora andate nella sezione &#8220;processing&#8221;, in &#8220;decoding&#8221; assicuratevi che sia tutto uncheckato, mentre in &#8220;deinterlacing&#8221; selezionate come nell&#8217;immagine:</p>
+<p><img src="http://i.imgur.com/3aTnc.png" alt="Immagine" /></p>
+<p>Andate nella sezione &#8220;scaling algorithms&#8221;, in &#8220;chroma upscaling&#8221; e &#8220;luma upscaling&#8221; settate &#8220;Spline&#8221; e &#8220;4 taps&#8221;, mentre in &#8220;luma downscaling&#8221; selezionate &#8220;Bicubic&#8221; e &#8220;sharpness: 50&#8243;.</p>
+<p><img src="http://i.imgur.com/Stvwo.png" alt="Immagine" /></p>
+<p>Dopodiché andate nella sezione &#8220;rendering&#8221; e in &#8220;windowed mode setting&#8221; settate come nell&#8217;immagine:</p>
+<p><img src="http://i.imgur.com/lmetD.png" alt="Immagine" /></p>
+<p>Infine disabilitate il Dithering da &#8220;trade quality for performance&#8221; spuntando &#8220;don&#8217;t use dithering&#8221;:</p>
+<p><img src="http://i.imgur.com/WldqR.png" alt="WldqR" /></p>
+<p>Se tutto è andato bene, cliccando CTRL+J dovreste ottenere qualcosa del genere:</p>
+<p><img src="http://i.imgur.com/On8uc.jpg" alt="" width="907" height="595" /></p>
+					</article>
+				</section>
+        
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history:  false,
+				center:   true,
+
+				theme: Reveal.getQueryHash().theme,
+				transition: Reveal.getQueryHash().transition || 'default',
+
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+					{ src: 'plugin/meny/meny.min.js' },
+					{ src: 'plugin/meny/meny.js' },
+          
+					{ src: 'plugin/nicescroll/jquery.nicescroll.min.js' },
+					{ src: 'plugin/nicescroll/nicescroll.js' }
+				]
+			});
+		</script>
+
+	</body>
+</html>
