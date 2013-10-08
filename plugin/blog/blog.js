@@ -11,8 +11,8 @@ function getURLParameter(name) {
 function fill(last) {
   for(var i = 2; i <= last; ++i) {
     content  = '<section id="news-' + i + '">';
-      content += '<header>Loading title...</h2>';
-      content += '<article><p>Loading contents...</p></article>';
+      content += '<header>Caricando il titolo...</h2>';
+      content += '<article><p>Caricando la news...</p></article>';
     content += '</section>';
     $('.slides').append(content);
   }
@@ -27,8 +27,16 @@ function get(id, n) {
     success:  function(data) {
       $('title')                     .html(data['title'] + ' - ' + pagetitle);
       $('#news-' + n + ' > header')  .html('<h2>' + data['title'] + '</h2>');
-      $('#news-' + n + ' > header').append('<p>News written by <em>' + data['author'] + '</em> on <em>' + data['date'] + '</em>. <a class="roll" href="id/' + id + '.html"><span data-title="Comments">Comments</span></a><br /><em>' + $.map(data['tags'].split(', '), function(tag) { return '<a class="roll" href="tag/' + tag + '"><span data-title="' + tag + '">' + tag + '</span></a>' }) +'</em></p>');
-      $('#news-' + n)              .append('<article>' + data['text'].replace(/\.(png|jpg|gif)\"/g, '.$1" data-lightbox="roadtrip"') + '</article><div class="spacing"></div>');
+      $('#news-' + n + ' > header').append('<p>News scritta da <em>' + data['author'] + '</em> il <em>' + data['date'] + '</em>. <a class="roll" href="id/' + id + '.html"><span data-title="Commenti">Commenti</span></a><br /><em>' + $.map(data['tags'].split(', '), function(tag) { return '<a class="roll" href="tag/' + tag + '"><span data-title="' + tag + '">' + tag + '</span></a>' }) +'</em></p>');
+      $('#news-' + n)              .append('<article>' + data['text'].replace(/\.(png|jpg|gif)\"/g, '.$1" data-lightbox="roadtrip"') + '</article>');
+      if(screen.height < 1080 && screen.height >= 1024) {
+        $('#news-' + n).prepend('<div class="spacing"></div>');
+        $('#news-' + n).append('<div class="spacing"></div>');
+      }
+      if(screen.height < 1024 ) {
+        $('#news-' + n).prepend('<div class="spacing"></div>');
+        $('#news-' + n).append('<div class="spacing"></div>');
+      }
     },
     error: function(data) {
       $('title')                     .html('Error - ' + pagetitle);
@@ -47,13 +55,29 @@ function get_by_id(id) {
     success:  function(data) {
       $('title')              .html(data['title'] + ' - ' + pagetitle);
       $('#news-1 > header')   .html('<h2>' + data['title'] + '</h2>');
-      $('#news-1 > header') .append('<p>News written by <em>' + data['author'] + '</em> on <em>' + data['date'] + '</em>.<br /><em>' + $.map(data['tags'].split(', '), function(tag) { return '<a href="tag/' + tag + '">' + tag + '</a>' }) + '</em></p>');
+      $('#news-1 > header') .append('<p>News scritta da <em>' + data['author'] + '</em> il <em>' + data['date'] + '</em>.<br /><em>' + $.map(data['tags'].split(', '), function(tag) { return '<a href="tag/' + tag + '">' + tag + '</a>' }) + '</em></p>');
       $('#news-1')          .append('<article>' + data['text'].replace(/\.(png|jpg|gif)\"/g, '.$1" data-lightbox="roadtrip"') + '<div align="center"><script>var idcomments_acct = \'87b04b2a52c611244adf65de705ad6f4\'; var idcomments_post_id; var idcomments_post_url;</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div></article>');
+      if(screen.height < 1080 && screen.height >= 1024) {
+        $('#news-1').prepend('<div class="spacing"></div>');
+        $('#news-1').append('<div class="spacing"></div>');
+      }
+      if(screen.height < 1024 ) {
+        $('#news-1').prepend('<div class="spacing"></div>');
+        $('#news-1').append('<div class="spacing"></div>');
+      }
     },
     error: function(data) {
       $('title')             .html('Error - ' + pagetitle);
       $('#news-1 > header')  .html('<h1>Error</h1>');
-      $('#news-1')           .append('<article><h3>The article you are searching has been eaten by Shinbo.</h3><img src="css/theme/error.gif" alt="Error" /></article><div class="spacing"></div>');
+      $('#news-1')           .append('<article><h3>The article you are searching has been eaten by Shinbo.</h3><img src="css/theme/error.gif" alt="Error" /></article>');
+      if(screen.height < 1080 && screen.height >= 1024) {
+        $('#news-1').prepend('<div class="spacing"></div>');
+        $('#news-1').append('<div class="spacing"></div>');
+      }
+      if(screen.height < 1024 ) {
+        $('#news-1').prepend('<div class="spacing"></div>');
+        $('#news-1').append('<div class="spacing"></div>');
+      }
     }
   });
 }
