@@ -4,3 +4,5 @@
 - Implement plugin of meny`, `nicescroll`, `trip` and `lightbox`
 - Create plugin `blog` and `overview`
 - Create *.html and `editor` and `news` folders
+- `single.php` for static single news
+- Sitemap and RSS feed

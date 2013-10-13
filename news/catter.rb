@@ -1,4 +1,4 @@
-# Working under `Twenty Ten` wordpress theme
+# wp theme: Twenty Ten 
 require 'open-uri'
 require 'nokogiri'
 require 'json'

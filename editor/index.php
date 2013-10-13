@@ -7,7 +7,9 @@
 <body>
 
 <?php
-$password = '/a49gMT.hS$z,%_&Df,EKh*up';
+require_once('utils.php');
+
+$password = 'PASSWORD';
 
 if(get_magic_quotes_gpc()) {
   $process = array(&$_GET, &$_POST, &$_COOKIE, &$_REQUEST);
@@ -24,11 +26,14 @@ if(get_magic_quotes_gpc()) {
   unset($process);
 }
 
+if(!isset($_GET['id']))
+  die('<div align="center"><h1>Nope</h1><img src="youcannotpass.jpg" /></div>');
+
 if(isset($_POST['password'])) {
   if($_POST['password'] != $password)
     die('<div align="center"><h1>Nope</h1><img src="youcannotpass.jpg" /></div>');
     
-  // creo i dati
+  // make datas
   $news = array(
     'title'  => $_POST['title'],
     'tags'   => $_POST['tags'],
@@ -40,18 +45,18 @@ if(isset($_POST['password'])) {
   $id = isset($_GET['id']) ? $_GET['id'] : (string)((int)file_get_contents('../news/last.txt', FILE_USE_INCLUDE_PATH) + 1);
   
   if(!isset($_GET['id'])) {    
-    // aggiorno last.txt
+    // update last.txt
     $f = fopen('../news/last.txt', 'w');
     fwrite($f, $id);
     fclose($f);
   }
 
-  // salvo
+  // save
   $f = fopen('../news/' . $id . '.json', 'w');
   fwrite($f, json_encode($news));
   fclose($f);
 
-  // aggiorno il categories.json
+  // update categories.json
   $categories = json_decode(file_get_contents('../news/categories.json', FILE_USE_INCLUDE_PATH));
   if(isset($_GET['id'])) {
     foreach($categories as $category) {
@@ -66,6 +71,10 @@ if(isset($_POST['password'])) {
   $f = fopen('../news/categories.json', 'w');
   fwrite($f, json_encode($categories));
   fclose($f);
+
+  // make feed and sitemap
+  makeFeed();
+  makeSitemap();
   
   die('<div align="center"><h1>All done</h1><img src="gg.jpg" /></div>');
 }

@@ -13,5 +13,4 @@ Be sure to edit:
 
 Then, customize LaCumparola as you need.
 
-# Warning
-Remember that LaCumparola's articles are hidden by bots, so you will be not indexed by Google and friends (but a simple PHP script should be good)!
+If you haven't or don't want to use PHP, restore blog.js at #14ff228, because by the next commit, single news are handled by `single.php`.

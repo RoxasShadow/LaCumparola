@@ -11,8 +11,6 @@ ErrorDocument 403 /error.html
 ErrorDocument 404 /error.html
 ErrorDocument 500 /error.html
 
-AddType text/html php htm html
-
 <IfModule mod_deflate.c>
    SetOutputFilter DEFLATE
 
@@ -28,14 +26,14 @@ AddType text/html php htm html
 
 <IfModule mod_expires.c>
 <IfModule mod_headers.c>
-<FilesMatch "\.(jpg|jpeg|png|bmp|gif|swf|js|css|json)$"> # Estensioni che verranno messe in cache per 15 giorni (1296000 secondi)
+<FilesMatch "\.(jpg|jpeg|png|bmp|gif|swf|css)$"> # 15 days caching
   Header set Cache-Control "max-age=1296000, public"
 </FilesMatch>
 </IfModule>
 </IfModule>
 
 RewriteRule ^index\.html\?id=(\d+)$    /id/$1.html   [L]
-RewriteRule ^id/([0-9]+)\.html$        index.html?id=$1       [L]
+RewriteRule ^id/([0-9]+)\.html$        single.php?id=$1       [L]
 RewriteRule ^id/(\D+)\.html$           /$1.html      [R=301]
 RewriteRule ^id/(.+?)/(.+)$            /$1/$2        [R=301]
 
