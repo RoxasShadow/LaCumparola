@@ -26,9 +26,6 @@ if(get_magic_quotes_gpc()) {
   unset($process);
 }
 
-if(!isset($_GET['id']))
-  die('<div align="center"><h1>Nope</h1><img src="youcannotpass.jpg" /></div>');
-
 if(isset($_POST['password'])) {
   if($_POST['password'] != $password)
     die('<div align="center"><h1>Nope</h1><img src="youcannotpass.jpg" /></div>');
@@ -88,13 +85,13 @@ else if(isset($_GET['id']))
 </script>
 
 <div id="sample" align="center">
-  <h1>Omnivium editor</h1>
+  <h1>News editor</h1>
   <form action="" method="post">
-    <input type="text"     placeholder="title"    name="title"    style="width: 47%" value="<?php echo $news->title;  ?>" /><br />
-    <input type="tags"     placeholder="tags"     name="tags"     style="width: 47%" value="<?php echo $news->tags;   ?>" /><br />
-    <input type="author"   placeholder="author"   name="author"   style="width: 47%" value="<?php echo $news->author; ?>" /><br />
+    <input type="text"     placeholder="title"    name="title"    style="width: 47%" value="<?php echo $news ? $news->title  : '';  ?>" /><br />
+    <input type="tags"     placeholder="tags"     name="tags"     style="width: 47%" value="<?php echo $news ? $news->tags   : '';  ?>" /><br />
+    <input type="author"   placeholder="author"   name="author"   style="width: 47%" value="<?php echo $news ? $news->author : '';  ?>" /><br />
     <input type="password" placeholder="password" name="password" style="width: 47%" /><br />
-    <textarea name="text"  style="width: 50%; height: 85%;"><?php echo $news->text; ?></textarea>
+    <textarea name="text"  style="width: 50%; height: 85%;"><?php echo $news ? $news->text : ''; ?></textarea>
     <input type="submit"   value="Send" />
   </form>
 </div>
