@@ -14,3 +14,6 @@ Be sure to edit:
 Then, customize LaCumparola as you need.
 
 If you haven't or don't want to use PHP, restore blog.js at #14ff228, because by the next commit, single news are handled by `single.php`.
+
+# Export posts to WordPress
+[Here](https://gist.github.com/RoxasShadow/1632db25649b7c693d55) the plugin.
